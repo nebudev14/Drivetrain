@@ -12,7 +12,6 @@ public class DriveSubsystem extends Subsystem {
     public double driveMultiplier = 1;
 
     public CANSparkMax r, r1, r2, l, l1, l2;
-    public static final int GEAR_RATIO = 100;
 
     public void assistedDriveMode() {this.assisted = true;}
     public void manualDriveMode() {this.assisted = false;}
@@ -32,5 +31,20 @@ public class DriveSubsystem extends Subsystem {
 		//IGNORE THIS METHOD
     }
 
+    public void setAllSpeed(double n){
+      setRightSpeed(n);
+      setLeftSpeed(n);
+    }
+
+    public void setRightSpeed(double n){
+      r.set(n);
+      r1.set(n);
+      r2.set(n);
+    }
+    public void setLeftSpeed(double n){
+      l.set(n);
+      l1.set(n);
+      l2.set(n);
+    }
     
 }
