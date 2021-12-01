@@ -9,7 +9,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;;
 public class DriveSubsystem extends Subsystem {
 
     public CANSparkMax rFront, rMiddle, rBack, lFront, lMiddle, lBack;
-    Joystick controller = new Joystick(10);
+    Joystick leftJoystick = new Joystick(10);
+    Joystick rightJoystick = new Joystick(11);
 
     public DriveSubsystem(){
       this.rFront = new CANSparkMax(0, MotorType.kBrushless);
@@ -50,5 +51,10 @@ public class DriveSubsystem extends Subsystem {
         setLeftSpeed(1);
         setRightSpeed(-0.5);
       }
+    }
+
+    public void userTurn() { // the user uses a controller to turn
+      setLeftSpeed(leftJoystick.getY());
+      setRightSpeed(rightJoystick.getY());
     }
 }
