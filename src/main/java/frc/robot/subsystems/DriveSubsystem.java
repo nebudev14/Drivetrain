@@ -19,13 +19,13 @@ public class DriveSubsystem extends Subsystem {
 
 
     public DriveSubsystem(){
-      this.r = new CANSparkMax(0, GEAR_RATIO);
-      this.r1 = new CANSparkMax(1, GEAR_RATIO);
-      this.r2 = new CANSparkMax(2, GEAR_RATIO);
+      this.r = new CANSparkMax(0, MotorType.kBrushless);
+      this.r1 = new CANSparkMax(1, MotorType.kBrushless);
+      this.r2 = new CANSparkMax(2, MotorType.kBrushless);
 
-      this.l = new CANSparkMax(3, GEAR_RATIO);
-      this.l1 = new CANSparkMax(4, GEAR_RATIO);
-      this.l2 = new CANSparkMax(5, GEAR_RATIO);
+      this.l = new CANSparkMax(3, MotorType.kBrushless);
+      this.l1 = new CANSparkMax(4, MotorType.kBrushless);
+      this.l2 = new CANSparkMax(5, MotorType.kBrushless);
     }
     @Override
     protected void initDefaultCommand() {
