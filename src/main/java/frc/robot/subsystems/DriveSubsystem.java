@@ -47,4 +47,14 @@ public class DriveSubsystem extends Subsystem {
       l2.set(n);
     }
     
+    public void turn(boolean left)  { // if true, turn left, if false, turn right
+      if(left) {
+        setLeftSpeed(-0.5);
+        setRightSpeed(1);
+      }
+      else {
+        setLeftSpeed(1);
+        setRightSpeed(-0.5);
+      }
+    }
 }
