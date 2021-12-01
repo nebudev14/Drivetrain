@@ -1,30 +1,24 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Joystick;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;;
 
 public class DriveSubsystem extends Subsystem {
 
-    public boolean assisted = false;
-    public boolean reversed = false;
-    public double driveMultiplier = 1;
-
-    public CANSparkMax r, r1, r2, l, l1, l2;
-
-    public void assistedDriveMode() {this.assisted = true;}
-    public void manualDriveMode() {this.assisted = false;}
-
+    public CANSparkMax rFront, rMiddle, rBack, lFront, lMiddle, lBack;
+    Joystick controller = new Joystick(10);
 
     public DriveSubsystem(){
-      this.r = new CANSparkMax(0, MotorType.kBrushless);
-      this.r1 = new CANSparkMax(1, MotorType.kBrushless);
-      this.r2 = new CANSparkMax(2, MotorType.kBrushless);
+      this.rFront = new CANSparkMax(0, MotorType.kBrushless);
+      this.rMiddle = new CANSparkMax(1, MotorType.kBrushless);
+      this.rBack = new CANSparkMax(2, MotorType.kBrushless);
 
-      this.l = new CANSparkMax(3, MotorType.kBrushless);
-      this.l1 = new CANSparkMax(4, MotorType.kBrushless);
-      this.l2 = new CANSparkMax(5, MotorType.kBrushless);
+      this.lFront = new CANSparkMax(3, MotorType.kBrushless);
+      this.lMiddle = new CANSparkMax(4, MotorType.kBrushless);
+      this.lBack = new CANSparkMax(5, MotorType.kBrushless);
     }
     @Override
     protected void initDefaultCommand() {
@@ -37,14 +31,14 @@ public class DriveSubsystem extends Subsystem {
     }
 
     public void setRightSpeed(double n){
-      r.set(n);
-      r1.set(n);
-      r2.set(n);
+      rFront.set(n);
+      rMiddle.set(n);
+      rBack.set(n);
     }
     public void setLeftSpeed(double n){
-      l.set(n);
-      l1.set(n);
-      l2.set(n);
+      lFront.set(n);
+      lMiddle.set(n);
+      lBack.set(n);
     }
     
     public void turn(boolean left)  { // if true, turn left, if false, turn right
