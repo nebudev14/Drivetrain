@@ -70,15 +70,14 @@ public class DriveSubsystem extends Subsystem {
     // auto
     public void turnDegrees(double degrees) {
       if(gyro.getAngle() > 180) {
-        
+        degrees = -(360 - gyro.getAngle()); 
       }
       while(gyro.getAngle() != degrees) {
-        if((gyro.getAngle() >= 0) && (gyro.getAngle() < 180)) {
-          
+        if(gyro.getAngle() > 0) {
+          turn(false);
         } else {
-
+          turn(true);;
         }
       } 
-
     }
 }
