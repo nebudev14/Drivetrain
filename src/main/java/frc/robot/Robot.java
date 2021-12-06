@@ -5,10 +5,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.DriveSubsystem;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;;
 
 public class Robot extends TimedRobot {
+  public static DriveSubsystem driveSubsystem = new DriveSubsystem();
 
   private CANSparkMax motorOne;
   private CANSparkMax motorTwo;
