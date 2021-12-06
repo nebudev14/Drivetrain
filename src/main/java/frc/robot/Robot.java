@@ -13,6 +13,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;;
 public class Robot extends TimedRobot {
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
 
+  public static OI oi = new OI();
+
   private CANSparkMax motorOne;
   private CANSparkMax motorTwo;
   private CANSparkMax motorThree;
