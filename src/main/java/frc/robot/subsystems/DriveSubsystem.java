@@ -18,42 +18,21 @@ public class DriveSubsystem extends Subsystem {
       this.lFront = new CANSparkMax(3, MotorType.kBrushless);
       this.lMiddle = new CANSparkMax(4, MotorType.kBrushless);
       this.lBack = new CANSparkMax(5, MotorType.kBrushless);
+
+      rMiddle.follow(rFront);
+      rBack.follow(rFront);
+
+      lMiddle.follow(lFront);
+      lBack.follow(lFront);
     }
     @Override
     protected void initDefaultCommand() {
 		//IGNORE THIS METHOD
     }
 
-    public void setAllSpeed(double n){
-      setRightSpeed(n);
-      setLeftSpeed(n);
-    }
-
-    public void setRightSpeed(double n){
-      rFront.set(n);
-      rMiddle.set(n);
-      rBack.set(n);
-    }
-    public void setLeftSpeed(double n){
-      lFront.set(n);
-      lMiddle.set(n);
-      lBack.set(n);
-    }
-
-    
     public void moveRobot(Joystick leftJoystick, Joystick rightJoystick) {
-      setLeftSpeed(leftJoystick.getY());
-      setRightSpeed(rightJoystick.getY());
+      lFront.set(leftJoystick.getY());
+      rFront.set(rightJoystick.getY());
     }
-    
-    public void turn(boolean left)  { // if true, turn left, if false, turn right
-      if(left) {
-        setLeftSpeed(-0.5);
-        setRightSpeed(1);
-      }
-      else {
-        setLeftSpeed(1);
-        setRightSpeed(-0.5);
-      }
-    }
+  
   }
