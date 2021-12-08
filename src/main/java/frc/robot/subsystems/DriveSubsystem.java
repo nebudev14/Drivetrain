@@ -6,18 +6,20 @@ import edu.wpi.first.wpilibj.Joystick;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import frc.robot.PortMap;
+
 public class DriveSubsystem extends Subsystem {
 
     public CANSparkMax rFront, rMiddle, rBack, lFront, lMiddle, lBack;
 
     public DriveSubsystem(){
-      this.rFront = new CANSparkMax(0, MotorType.kBrushless);
-      this.rMiddle = new CANSparkMax(1, MotorType.kBrushless);
-      this.rBack = new CANSparkMax(2, MotorType.kBrushless);
+      this.rFront = new CANSparkMax(PortMap.RIGHT_FRONT_SPARK, MotorType.kBrushless);
+      this.rMiddle = new CANSparkMax(PortMap.RIGHT_MIDDLE_SPARK, MotorType.kBrushless);
+      this.rBack = new CANSparkMax(PortMap.RIGHT_BACK_SPARK, MotorType.kBrushless);
 
-      this.lFront = new CANSparkMax(3, MotorType.kBrushless);
-      this.lMiddle = new CANSparkMax(4, MotorType.kBrushless);
-      this.lBack = new CANSparkMax(5, MotorType.kBrushless);
+      this.lFront = new CANSparkMax(PortMap.LEFT_FRONT_SPARK, MotorType.kBrushless);
+      this.lMiddle = new CANSparkMax(PortMap.LEFT_MIDDLE_SPARK, MotorType.kBrushless);
+      this.lBack = new CANSparkMax(PortMap.LEFT_BACK_SPARK, MotorType.kBrushless);
 
       rMiddle.follow(rFront);
       rBack.follow(rFront);
